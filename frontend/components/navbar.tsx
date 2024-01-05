@@ -6,8 +6,8 @@ import Button from './button'
 
 const NavBar = () => {
   return (
-    <div className=' py-5 w-full flex justify-center bg-[#f66839] '>
-      <div className=' max-w-5xl w-full px-4 md:px-0 flex justify-between items-center '>
+    <div className=' py-5 w-full flex justify-center bg-[#f66839] px-[120px] '>
+      <div className=' max-w-7xl w-full px-4 md:px-0 flex justify-between items-center '>
         <Image src={logo} alt='Logo' className=' h-10 w-32 md:h-10 md:w-32 ' />
 
         <div className=' hidden md:flex gap-12 items-center  text-white uppercase text-sm  '>
