@@ -42,3 +42,27 @@ Will be added soon
 ## Deployment Platform
 
 Docker & Azure Static Web apps
+
+### To create Azure web app service
+
+- Login to Azure portal
+- Create a resource group and Azure Container Registry
+`az acr create --name $registryName --resource-group $resourceGroup --sku Basic --location $location`
+  In this command:
+  
+  --name is the name you want to give to your Azure Container Registry.
+  --resource-group is the name of the resource group where you want to create the Azure Container Registry.
+  --sku is the SKU for the Azure Container Registry. In this example, we're using the Basic SKU.
+  --location is the Azure region where you want to create the Azure Container Registry.
+  Please replace $registryName, $resourceGroup, and $location with your actual values.
+- 
+### To build the docker image
+
+1. Add Dockerfile and .dockerignore files to your project
+2. Configure gunicorn.conf.py file
+3. Build and run the image locally `docker build --tag flask-demo .`
+4. 
+1. docker build --tag fastapi-demo .
+2. docker run --detach --publish 3100:3100 fastapi-demo.  docker login innovatexapi.azurecr.io -u innovatexapi -p H0zT83XSLntt3F0uFg8KMEZpeV0EVYwijHiAMTn8aT+ACRD2BxsP
+4. docker build -t innovatexapi.azurecr.io/innovatexapiapp:build-tag-
+5. docker push innovatexapi.azurecr.io/innovatexapiapp:build-tag-2
