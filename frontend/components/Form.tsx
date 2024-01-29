@@ -125,7 +125,7 @@ const Form = () => {
             Select currency <span className=" text-red-600 ">*</span>{" "}
           </label>
           {/* <input type="text" className=' p-2 border border-gray-500 w-full ' /> */}
-          <select name="" className="p-2 border border-gray-500 w-full">
+          <select name="" className="p-2 border border-gray-500 w-full cursor-not-allowed">
             <option value="naira">NGN - NIGERIAN NAIRA</option>
           </select>
         </div>
