@@ -54,7 +54,7 @@ const Form = () => {
 
 
 
-      <p>By clicking Submit you agree to our <span className=' text-[#F66838] ' > Terms and Conditions</span>  and <span className=' text-[#F66838] ' > Privacy Policy</span>  </p>
+      <p>By clicking Submit you agree to our <span className=' text-[#F66838] cursor-pointer ' > Terms and Conditions</span>  and <span className=' cursor-pointer text-[#F66838] ' > Privacy Policy</span>  </p>
       <div className=' flex gap-10'>
         <button className=' px-8 py-5 text-white  text-xl bg-gray-500  ' >
           Submit
