@@ -72,7 +72,7 @@ const Form = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className=" max-w-2xl flex flex-col gap-10 p-10 w-full  "
+      className=" max-w-2xl flex flex-col gap-10 lg:p-10 w-full  "
     >
       <div className=" flex flex-col gap-3 w-full ">
         <label htmlFor="who" className=" text-sm ">
@@ -102,7 +102,7 @@ const Form = () => {
         </div>
       </div>
 
-      <div className=" grid grid-cols-2 gap-10 ">
+      <div className=" grid grid-cols-1 md:grid-cols-2 gap-10 ">
         <div className=" flex flex-col gap-3 w-full ">
           <label htmlFor="who" className=" text-sm ">
             Amount to pay (₦) <span className=" text-red-600 ">*</span>{" "}
@@ -131,7 +131,7 @@ const Form = () => {
         </div>
       </div>
 
-      <div className=" grid grid-cols-2 gap-10 ">
+      <div className=" grid grid-cols-1 md:grid-cols-2 gap-10 ">
         <div className=" flex flex-col gap-3 w-full ">
           <label htmlFor="who" className=" text-sm ">
             Payers Name<span className="text-red-600">*</span>{" "}

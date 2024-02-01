@@ -20,10 +20,10 @@ const paymentTypes = [
 ]
 export default function Home() {
   return (
-    <main className=' flex justify-center w-full' >
+    <main className=' flex justify-center w-full px-5' >
       <div className='max-w-7xl flex flex-col w-full pt-[76px]  '>
         <h2 className=' text-[#F66838] font-normal text-2xl leading-10 mb-8' >Pay a Biller</h2>
-        <div className=' flex gap-6 uppercase border-b border-b-green-500 w-3/4'>
+        <div className=' flex gap-6 uppercase border-b border-b-green-500 lg:w-3/4'>
           {paymentTypes.map((payment) => (
             <p key={payment.text} className='text-md flex items-center'>
               <span>
