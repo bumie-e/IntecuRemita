@@ -178,12 +178,12 @@ const Form = () => {
 
       <p>
         By clicking Submit you agree to our{" "}
-        <span className=" text-[#F66838] "> Terms and Conditions</span> and{" "}
-        <span className=" text-[#F66838] "> Privacy Policy</span>{" "}
+        <span className=" text-[#F66838] cursor-pointer "> Terms and Conditions</span> and{" "}
+        <span className=" text-[#F66838] cursor-pointer "> Privacy Policy</span>{" "}
       </p>
       <div className=" flex gap-10">
-        <button className=" px-8 py-5 text-white  text-xl bg-gray-500  ">
-          Submit
+        <button className=" cursor-pointer hover:bg-[#f66839] transition-all duration-300 px-8 py-5 text-white  text-xl bg-gray-500  ">
+          Proceed to Payment
         </button>
 
         <button
