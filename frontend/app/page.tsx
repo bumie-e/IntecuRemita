@@ -3,6 +3,7 @@ import payOnce from '@/public/payonce.svg'
 import eInvoice from '@/public/e-invoice.svg'
 import reOccurring from '@/public/recurring.svg'
 import Form from '@/components/Form'
+import PaymentOptions from '@/components/PaymentOptions'
 
 const paymentTypes = [
   {
@@ -20,7 +21,7 @@ const paymentTypes = [
 ]
 export default function Home() {
   return (
-    <main className=' flex justify-center w-full px-5' >
+    <main className=' flex justify-center w-full px-5 relative' >
       <div className='max-w-7xl flex flex-col w-full pt-[76px]  '>
         <h2 className=' text-[#F66838] font-normal text-2xl leading-10 mb-8' >Pay a Biller</h2>
         <div className=' flex gap-6 uppercase border-b border-b-green-500 lg:w-3/4'>
@@ -34,6 +35,7 @@ export default function Home() {
           ))}
         </div>
 
+        {/* <PaymentOptions /> */}
 
         <Form />
       </div>

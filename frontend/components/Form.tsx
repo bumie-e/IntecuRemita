@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button, Modal } from "antd";
+import PaymentOptions from "./PaymentOptions";
 
 // TODO: Cater for the number of cards
 
@@ -193,12 +194,15 @@ const Form = () => {
         </button>
       </div>
       <Modal
-        title="Submitted Modal"
+        // title="Submitted Modal"
         open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
+        // onOk={handleOk}
+        // onCancel={handleCancel}
+        width={780}
       >
-        <p>The Card Code has been sent to {userData.email}</p>
+        {/* <p>The Card Code has been sent to {userData.email}</p> */}
+
+        <PaymentOptions />
       </Modal>
     </form>
   );
