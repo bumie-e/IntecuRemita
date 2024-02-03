@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button, Modal } from "antd";
+import PaymentOptions from "./PaymentOptions";
 
 // TODO: Cater for the number of cards
 
@@ -72,7 +73,7 @@ const Form = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className=" max-w-2xl flex flex-col gap-10 p-10 w-full  "
+      className=" max-w-2xl flex flex-col gap-10 lg:p-10 w-full  "
     >
       <div className=" flex flex-col gap-3 w-full ">
         <label htmlFor="who" className=" text-sm ">
@@ -102,7 +103,7 @@ const Form = () => {
         </div>
       </div>
 
-      <div className=" grid grid-cols-2 gap-10 ">
+      <div className=" grid grid-cols-1 md:grid-cols-2 gap-10 ">
         <div className=" flex flex-col gap-3 w-full ">
           <label htmlFor="who" className=" text-sm ">
             Amount to pay (₦) <span className=" text-red-600 ">*</span>{" "}
@@ -131,7 +132,7 @@ const Form = () => {
         </div>
       </div>
 
-      <div className=" grid grid-cols-2 gap-10 ">
+      <div className=" grid grid-cols-1 md:grid-cols-2 gap-10 ">
         <div className=" flex flex-col gap-3 w-full ">
           <label htmlFor="who" className=" text-sm ">
             Payers Name<span className="text-red-600">*</span>{" "}
@@ -177,12 +178,12 @@ const Form = () => {
 
       <p>
         By clicking Submit you agree to our{" "}
-        <span className=" text-[#F66838] "> Terms and Conditions</span> and{" "}
-        <span className=" text-[#F66838] "> Privacy Policy</span>{" "}
+        <span className=" text-[#F66838] cursor-pointer "> Terms and Conditions</span> and{" "}
+        <span className=" text-[#F66838] cursor-pointer "> Privacy Policy</span>{" "}
       </p>
       <div className=" flex gap-10">
-        <button className=" px-8 py-5 text-white  text-xl bg-gray-500  ">
-          Submit
+        <button className=" cursor-pointer hover:bg-[#f66839] transition-all duration-300 px-8 py-5 text-white  text-xl bg-gray-500  ">
+          Proceed to Payment
         </button>
 
         <button
@@ -193,12 +194,15 @@ const Form = () => {
         </button>
       </div>
       <Modal
-        title="Submitted Modal"
+        // title="Submitted Modal"
         open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
+        // onOk={handleOk}
+        // onCancel={handleCancel}
+        width={780}
       >
-        <p>The Card Code has been sent to {userData.email}</p>
+        {/* <p>The Card Code has been sent to {userData.email}</p> */}
+
+        <PaymentOptions />
       </Modal>
     </form>
   );
