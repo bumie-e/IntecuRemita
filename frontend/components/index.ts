@@ -1,3 +1,4 @@
+import bank from '@/public/bank.svg'
 import card from '@/public/card.svg'
 import card2 from '@/public/card2.svg'
 import ussd from '@/public/ussd.svg'
@@ -23,6 +24,7 @@ import banktransfer2 from '@/public/banktransfer2.svg'
 
 
 export {
+  bank,
   card,
   ussd,
   phone,
