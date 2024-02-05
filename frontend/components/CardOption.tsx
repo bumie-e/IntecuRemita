@@ -93,6 +93,7 @@ const CardOption = () => {
       
       // successful
       alert("Check your email for the INTECU Code");
+      window.location.reload();
     } catch (error) {
       alert("Something went wrong, please try again");
     }
