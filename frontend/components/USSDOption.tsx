@@ -12,9 +12,11 @@ const USSDOption = () => {
 
   
   const [randomString, setRandomString] = useState("");
+  const [randomPassword, setRandomPassword] = useState("");
 
   useEffect(() => {
     setRandomString(generateRandomString());
+    setRandomPassword(generateRandomString());
   }, [])
 
   const handleSubmit = async (e: any) => {
@@ -24,7 +26,7 @@ const USSDOption = () => {
     try {
       smtpexpressClient.sendApi.sendMail({
         subject: "OAU Internet Connectivity by INTECU (for students)",
-        message: `<h2>Your INTECU code is ${randomString}</h2>`,
+        message: `<h2>Your INTECU code Username is ${randomString} and Password is ${randomPassword}</h2>`,
         sender: {
           name: "Group 8 INTECU",
           email: "sm0pid-PLCe4xgXajJex6hH7fQrU9i90@projects.smtpexpress.com",
