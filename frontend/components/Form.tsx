@@ -1,12 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Button, Modal } from "antd";
 import PaymentOptions from "./PaymentOptions";
+import { UserDataContext } from "@/context/userDataContext";
 
 // TODO: Cater for the number of cards
 
 const Form = () => {
+  // Context
+  const { userContextData, setUserContextData } = useContext(UserDataContext);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [userData, setUserData] = useState({
@@ -28,7 +32,6 @@ const Form = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-
 
   const handleChange = (e: any) => {
     setUserData({
@@ -56,18 +59,38 @@ const Form = () => {
       return;
     }
 
-    // console.log(userData)
+    if (!userData.email.includes("@gmail.com")) {
+      alert("Please enter the right format for your email");
+      return;
+    }
+
+    if(userData.phoneNumber.length !== 11){
+      alert("Please enter a valid phone number");
+      return
+    }
+
+    // console.log(typeof userData.amountToPay);
+    const apiData = {
+      pay_to: "Obafemi Awolowo University",
+      service: "OAU Internet Connectivity by INTECU (for students)",
+      amount: userData.amountToPay,
+      currency: "NGN - NIGERIAN NAIRA",
+      number_of_cards: "1 Card",
+      payers_name: userData.name,
+      payers_phone: userData.phoneNumber,
+      payers_email: userData.email,
+    };
+
+    // console.log(apiData);
+
+    // Set the data to the Context
+    setUserContextData(apiData);
+    // console.log(userContextData);
 
     // Send data to API (async)
 
     // Show Modal when API receives it
     showModal();
-    // setUserData({
-    //   amountToPay: "",
-    //   name: "",
-    //   phoneNumber: "",
-    //   email: "",
-    // });
   };
 
   return (
@@ -93,7 +116,9 @@ const Form = () => {
         </label>
         <div className="">
           <select className="p-2 border border-gray-500 w-full">
-            <option value="csc407">CSC407 Software Service</option>
+            <option value="csc407">
+              OAU Internet Connectivity by INTECU (For Students)
+            </option>
           </select>
         </div>
         <div>
@@ -126,7 +151,10 @@ const Form = () => {
             Select currency <span className=" text-red-600 ">*</span>{" "}
           </label>
           {/* <input type="text" className=' p-2 border border-gray-500 w-full ' /> */}
-          <select name="" className="p-2 border border-gray-500 w-full cursor-not-allowed">
+          <select
+            name=""
+            className="p-2 border border-gray-500 w-full cursor-not-allowed"
+          >
             <option value="naira">NGN - NIGERIAN NAIRA</option>
           </select>
         </div>
@@ -178,8 +206,15 @@ const Form = () => {
 
       <p>
         By clicking Submit you agree to our{" "}
-        <span className=" text-[#F66838] cursor-pointer "> Terms and Conditions</span> and{" "}
-        <span className=" text-[#F66838] cursor-pointer "> Privacy Policy</span>{" "}
+        <span className=" text-[#F66838] cursor-pointer ">
+          {" "}
+          Terms and Conditions
+        </span>{" "}
+        and{" "}
+        <span className=" text-[#F66838] cursor-pointer ">
+          {" "}
+          Privacy Policy
+        </span>{" "}
       </p>
       <div className=" flex gap-10">
         <button className=" cursor-pointer hover:bg-[#f66839] transition-all duration-300 px-8 py-5 text-white  text-xl bg-gray-500  ">
@@ -194,14 +229,11 @@ const Form = () => {
         </button>
       </div>
       <Modal
-        // title="Submitted Modal"
         open={isModalOpen}
-        // onOk={handleOk}
-        // onCancel={handleCancel}
         width={780}
+        // onOk={handleOk}
+        onCancel={handleCancel}
       >
-        {/* <p>The Card Code has been sent to {userData.email}</p> */}
-
         <PaymentOptions />
       </Modal>
     </form>
